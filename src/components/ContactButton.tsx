@@ -3,6 +3,8 @@ export const CONTACT_PHONE = '+34 679 176 087';
 export const CONTACT_PHONE_HREF = `tel:${CONTACT_PHONE.replace(/\s/g, '')}`;
 // Contact buttons scroll to the footer, where the email and phone are listed.
 export const CONTACT_ANCHOR = '#contacto';
+export const whatsappHref = (message = 'Hola Daniel, me gustaría pedirte presupuesto para una web.') =>
+  `https://wa.me/${CONTACT_PHONE.replace(/[^\d]/g, '')}?text=${encodeURIComponent(message)}`;
 
 export default function ContactButton() {
   return (

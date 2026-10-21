@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Sobre mí', href: '#about' },
   { label: 'Servicios', href: '#services' },
   { label: 'Proyectos', href: '#projects' },
+  { label: 'Tarifas', href: '#tarifas' },
 ];
 
 const PLATE_URL =

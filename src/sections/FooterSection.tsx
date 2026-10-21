@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import CompassMark from '../components/CompassMark';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from '../components/ContactButton';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, whatsappHref } from '../components/ContactButton';
 import { LEGAL_DOCS } from '../components/LegalDialog';
 import { useInViewPlayback } from '../hooks/useInViewPlayback';
 
@@ -72,6 +72,9 @@ export default function FooterSection() {
         </a>
         <a href={CONTACT_PHONE_HREF} className="footer__mail link-draw">
           {CONTACT_PHONE}
+        </a>
+        <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="footer__mail link-draw">
+          Escríbeme por WhatsApp
         </a>
 
         <p className="footer__copy">

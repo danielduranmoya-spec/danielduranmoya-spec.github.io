@@ -123,3 +123,53 @@ export const projects: Project[] = [
     },
   },
 ];
+
+export interface Plan {
+  name: string;
+  price: string;
+  unit?: string;
+  summary: string;
+  features: string[];
+  timeline: string;
+  featured?: boolean;
+}
+
+// Precios orientativos sin IVA; edítalos aquí.
+export const plans: Plan[] = [
+  {
+    name: 'Landing page',
+    price: '390 €',
+    summary: 'Una página a medida para presentar tu negocio o una campaña.',
+    features: ['Diseño a medida adaptado a móvil', 'Botón de WhatsApp y contacto', 'SEO básico y textos legales', '2 rondas de revisiones'],
+    timeline: '1–2 semanas',
+  },
+  {
+    name: 'Web de negocio',
+    price: '890 €',
+    summary: 'La web completa de tu negocio, lista para captar clientes.',
+    features: ['Hasta 5 secciones', 'Reservas online o catálogo', 'Mapa, horario y reseñas', 'Animaciones y textos legales'],
+    timeline: '3–4 semanas',
+    featured: true,
+  },
+  {
+    name: 'Web interactiva 3D',
+    price: '1.690 €',
+    summary: 'Una experiencia que nadie olvida, con escenas 3D o vídeo interactivo.',
+    features: ['Escena 3D o vídeo interactivo', 'Personajes o productos en 3D', 'Todo lo de la web de negocio', 'Optimizada para móvil'],
+    timeline: '4–6 semanas',
+  },
+];
+
+export const maintenance = {
+  name: 'Mantenimiento',
+  price: '35 €',
+  unit: '/mes',
+  summary: 'Cambios de contenido, copias de seguridad y actualizaciones para que tu web siga al día.',
+};
+
+export const processSteps = [
+  { title: 'Hablamos', text: 'Una llamada o reunión gratuita de 30 minutos para entender tu negocio. Te envío un presupuesto cerrado en 48 horas.' },
+  { title: 'Diseño', text: 'Preparo la propuesta visual y la ajustamos juntos. Incluye dos rondas de revisiones.' },
+  { title: 'Desarrollo', text: 'Construyo la web adaptada a móvil, con textos legales y SEO básico, y te la enseño antes de publicarla.' },
+  { title: 'Lanzamiento', text: 'Publicamos con el dominio a tu nombre: la web es tuya. Tienes 30 días de soporte gratuito.' },
+];

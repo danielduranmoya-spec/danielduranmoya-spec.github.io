@@ -84,7 +84,7 @@ function Privacidad() {
       <Titular />
 
       <h3>2. Qué datos tratamos</h3>
-      <p>Esta web no tiene formularios ni recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando escribes por correo o llamas por teléfono: tu nombre, tus datos de contacto y la información que compartas sobre tu proyecto.</p>
+      <p>Esta web no tiene formularios ni recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando escribes por correo o por WhatsApp o llamas por teléfono: tu nombre, tus datos de contacto y la información que compartas sobre tu proyecto.</p>
       <p>Al navegar, tu navegador descarga algunos recursos (tipografías, imágenes y vídeos) desde servidores de terceros: Google Fonts y redes de distribución de contenidos como Amazon CloudFront y motionsites.ai. Esos servidores reciben datos técnicos, como tu dirección IP, para poder enviarte los archivos.</p>
 
       <h3>3. Para qué y con qué base legal</h3>
@@ -99,6 +99,7 @@ function Privacidad() {
 
       <h3>5. A quién se comunican</h3>
       <p>No cedemos tus datos a terceros, salvo obligación legal (por ejemplo, a la Agencia Tributaria). Para atender tu consulta usamos el correo electrónico de Google (Gmail), que actúa como encargado del tratamiento. Google puede tratar datos en Estados Unidos, transferencia amparada en el Marco de Privacidad de Datos UE-EE. UU. (decisión de adecuación de la Comisión Europea de 10 de julio de 2023).</p>
+      <p>Si eliges escribir por WhatsApp, la conversación pasa por el servicio de WhatsApp Ireland Limited, que trata tus datos como responsable según su propia política de privacidad. Al pulsar un botón de WhatsApp de esta web solo se abre la aplicación con un mensaje sugerido: no se envía nada hasta que tú lo decides.</p>
 
       <h3>6. Tus derechos</h3>
       <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a <Mail />. Te responderemos en el plazo máximo de un mes. Si consideras que no hemos atendido bien tu solicitud, puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).</p>
