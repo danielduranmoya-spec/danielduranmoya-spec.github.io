@@ -2,8 +2,9 @@ import { useRef, type CSSProperties } from 'react';
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 
 interface AnimatedTextProps {
-  text: string;
+  paragraphs: string[];
   className?: string;
+  paragraphClassName?: string;
   style?: CSSProperties;
 }
 
@@ -26,35 +27,43 @@ function Char({ char, progress, range }: CharProps) {
   );
 }
 
-export default function AnimatedText({ text, className, style }: AnimatedTextProps) {
-  const ref = useRef<HTMLParagraphElement>(null);
+// Reveals the paragraphs character by character as one sequence: a paragraph only
+// starts lighting up once the previous one is fully revealed.
+export default function AnimatedText({ paragraphs, className, paragraphClassName, style }: AnimatedTextProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const total = text.length;
-  const words = text.split(' ');
+  const total = paragraphs.reduce((n, text) => n + text.length, 0);
   let index = 0;
 
   return (
-    <p ref={ref} className={className} style={style}>
-      {words.map((word, w) => {
-        // Words are kept as inline-block so lines never break mid-word.
-        const chars = word.split('').map((char) => {
-          const start = index / total;
-          const end = start + 1 / total;
-          index += 1;
-          return <Char key={index} char={char} progress={scrollYProgress} range={[start, end]} />;
-        });
-        index += 1; // account for the space
+    <div ref={ref} className={className}>
+      {paragraphs.map((text, p) => {
+        const words = text.split(' ');
         return (
-          <span key={w} className="inline-block whitespace-nowrap">
-            {chars}
-            {w < words.length - 1 && ' '}
-          </span>
+          <p key={p} className={paragraphClassName} style={style}>
+            {words.map((word, w) => {
+              // Words are kept as inline-block so lines never break mid-word.
+              const chars = word.split('').map((char) => {
+                const start = index / total;
+                const end = start + 1 / total;
+                index += 1;
+                return <Char key={index} char={char} progress={scrollYProgress} range={[start, end]} />;
+              });
+              index += 1; // account for the space
+              return (
+                <span key={w} className="inline-block whitespace-nowrap">
+                  {chars}
+                  {w < words.length - 1 && ' '}
+                </span>
+              );
+            })}
+          </p>
         );
       })}
-    </p>
+    </div>
   );
 }

@@ -286,6 +286,23 @@ html {
   color: var(--muted);
 }
 
+/* Desktop: the footer grows with the video instead of cropping it, so the whole
+   viaduct and the coach's crossing are always visible. */
+@media (min-width: 901px) {
+  .footer {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .footer__video {
+    flex: 1 0 auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: 50% 100%;
+  }
+}
+
 @media (max-width: 900px) {
   .footer__nav ul {
     display: grid;

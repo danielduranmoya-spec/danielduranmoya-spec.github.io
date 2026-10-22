@@ -63,63 +63,63 @@ export interface Project {
   col2: ProjectImage;
 }
 
-// Capturas reales de las webs, en public/projects/.
+// Capturas reales de las webs, en public/projects/. La imagen grande (col2) es siempre el hero.
 export const projects: Project[] = [
   {
-    name: 'AMV Salón barbería',
-    category: 'Cliente',
-    url: 'https://danielduranmoya-spec.github.io/amv-salon-barberia/',
+    name: 'ÁNCORA Fisioterapia',
+    category: 'Landing page',
+    url: 'https://danielduranmoya-spec.github.io/ancora-fisio/',
     col1: [
       {
-        src: '/projects/amv-inicio.webp',
-        alt: 'Portada 3D de AMV Salón barbería con el peluquero, el cliente y el selector de servicios de cristal',
+        src: '/projects/ancora-zonas.webp',
+        alt: 'Mapa corporal interactivo de ÁNCORA para elegir la zona del dolor y ver cómo se trata',
       },
       {
-        src: '/projects/amv-mapa.webp',
-        alt: 'Mapa interactivo con la ruta hasta la barbería junto a la dirección y el horario',
+        src: '/projects/ancora-tarifas.webp',
+        alt: 'Tabla de tarifas de ÁNCORA con sesiones y bonos a precio cerrado',
       },
     ],
     col2: {
-      src: '/projects/amv-escena.webp',
-      alt: 'Escena 3D del servicio completo con tijeras, peine y navaja flotando y la nube de precio',
+      src: '/projects/ancora-inicio.webp',
+      alt: 'Portada de ÁNCORA Fisioterapia: «Dolor resuelto, no aplazado» y la tarjeta de primera valoración en 48 horas',
     },
   },
   {
-    name: 'DOTTIES',
-    category: 'Concepto',
-    url: 'https://danielduranmoya-spec.github.io/dotties-moda/',
+    name: 'LUMBRE Asador',
+    category: 'Web de negocio',
+    url: 'https://danielduranmoya-spec.github.io/lumbre-asador/',
     col1: [
       {
-        src: '/projects/dotties-escena.webp',
-        alt: 'Escena de vídeo de DOTTIES con el modelo sobre una azotea frente al skyline',
+        src: '/projects/lumbre-carta.webp',
+        alt: 'Carta de LUMBRE «Todo pasa por la brasa» con categorías y precios',
       },
       {
-        src: '/projects/dotties-catalogo.webp',
-        alt: 'Catálogo de la tienda DOTTIES con prendas de lunares, filtros y selector de color y talla',
+        src: '/projects/lumbre-reservas.webp',
+        alt: 'Reserva de mesa de LUMBRE en tres pasos con calendario y resumen',
       },
     ],
     col2: {
-      src: '/projects/dotties-inicio.webp',
-      alt: 'Portada de DOTTIES con el titular «El punto exacto» y el controlador de escena sobre el vídeo',
+      src: '/projects/lumbre-inicio.webp',
+      alt: 'Portada de LUMBRE: «Fuego de encina. Carne de dehesa.» con brasas y horario',
     },
   },
   {
-    name: 'Melli',
-    category: 'Concepto',
-    url: 'https://danielduranmoya-spec.github.io/melli-3d/',
+    name: 'LAJA Bodega',
+    category: 'Web interactiva 3D',
+    url: 'https://danielduranmoya-spec.github.io/laja-bodega/',
     col1: [
       {
-        src: '/projects/melli-inicio.webp',
-        alt: 'Portada de Melli con una abeja en 3D posada sobre una flor violeta',
+        src: '/projects/laja-etiqueta.webp',
+        alt: 'Primer plano 3D de la etiqueta numerada de LAJA Tempranillo Crianza 2021',
       },
       {
-        src: '/projects/melli-flor.webp',
-        alt: 'Sección de Melli con la abeja 3D volando junto a una pasiflora',
+        src: '/projects/laja-uvas.webp',
+        alt: 'La botella de LAJA convertida en un racimo de uvas 3D en la sección «De la botella a la cepa»',
       },
     ],
     col2: {
-      src: '/projects/melli-invitacion.webp',
-      alt: 'Sección oscura de Melli con la abeja 3D sobre un iris y el texto de invitación',
+      src: '/projects/laja-inicio.webp',
+      alt: 'Portada de LAJA con la botella de vino en 3D y el titular «Vino de pizarra, hecho a 620 metros»',
     },
   },
 ];

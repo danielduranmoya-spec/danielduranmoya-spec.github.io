@@ -11,7 +11,7 @@ const MEADOW_VIDEO_URL =
   'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/d2cb5bef-f92b-4e91-ae93-8dc6555e56ac.mp4';
 
 const STORY = [
-  'Con más de cinco años de experiencia en diseño, me centro en el branding, el diseño web y la experiencia de usuario, y combino modelado 3D, renderizado y motion design para dar vida a cada idea.',
+  'Me centro en el branding, el diseño web y la experiencia de usuario, y combino modelado 3D, renderizado y motion design para dar vida a cada idea.',
   'Disfruto de verdad trabajando con empresas que quieren destacar y mostrar su mejor imagen. Tu marca debería contar tu historia, no perderse entre el ruido. ¡Construyamos juntos algo increíble!',
 ];
 
@@ -57,15 +57,11 @@ export default function AboutSection() {
             Daniel
           </FadeIn>
 
-          <div className="mb-16 flex w-full flex-col items-center font-light leading-[1.6] text-white md:mb-24">
-            {STORY.map((text, i) => (
-              <AnimatedText
-                key={i}
-                text={text}
-                className={`w-[420px] max-w-full text-center text-[16px] ${i === 0 ? 'mb-[24px]' : ''}`}
-              />
-            ))}
-          </div>
+          <AnimatedText
+            paragraphs={STORY}
+            className="mb-16 flex w-full flex-col items-center gap-[24px] font-light leading-[1.6] text-white md:mb-24"
+            paragraphClassName="w-[420px] max-w-full text-center text-[16px]"
+          />
 
           <FadeIn delay={0.1} y={20} className="mb-12 md:mb-16">
             <ContactButton />
