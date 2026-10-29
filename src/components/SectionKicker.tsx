@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import CompassMark from './CompassMark';
 import FadeIn from './FadeIn';
 
@@ -10,8 +10,9 @@ interface SectionKickerProps {
 
 // Small engraved-style chapter label; the compass turns as the page scrolls.
 export default function SectionKicker({ number, label, tone = 'light' }: SectionKickerProps) {
+  const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
-  const rotate = useTransform(scrollY, (v) => v * 0.15);
+  const rotate = useTransform(scrollY, (v) => (reduceMotion ? 0 : v * 0.15));
   const color = tone === 'light' ? 'text-sage' : 'text-ink';
 
   return (

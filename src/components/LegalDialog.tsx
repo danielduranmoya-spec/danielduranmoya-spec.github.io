@@ -10,7 +10,7 @@ const TITULAR = {
   domicilio: 'Calle Comarca Ribera del Tajo, 57, 06800 Mérida (Badajoz)',
   registroMercantil: '', // solo si actúas como sociedad; vacío = persona física
 };
-const ULTIMA_ACTUALIZACION = '22 de octubre de 2026';
+const ULTIMA_ACTUALIZACION = '29 de octubre de 2026';
 
 export const LEGAL_DOCS = {
   'aviso-legal': 'Aviso legal',
@@ -36,9 +36,9 @@ const Phone = () => <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>;
 function Titular() {
   return (
     <ul>
-      <li>Titular: <Field value={TITULAR.nombre} label="Daniel Durán Moyain" /></li>
-      <li>NIF: <Field value={TITULAR.nif} label="09214432B" /></li>
-      <li>Domicilio: <Field value={TITULAR.domicilio} label="Calle Comarca Ribera del Tajo,57" /></li>
+      <li>Titular: <Field value={TITULAR.nombre} label="nombre y apellidos" /></li>
+      <li>NIF: <Field value={TITULAR.nif} label="NIF" /></li>
+      <li>Domicilio: <Field value={TITULAR.domicilio} label="domicilio" /></li>
       <li>Correo electrónico: <Mail /></li>
       <li>Teléfono: <Phone /></li>
     </ul>
@@ -55,16 +55,16 @@ function AvisoLegal() {
         {TITULAR.registroMercantil
           ? `Inscripción en el Registro Mercantil: ${TITULAR.registroMercantil}.`
           : 'El titular ejerce su actividad como persona física y no está inscrito en el Registro Mercantil.'}{' '}
-        La actividad (diseño web, identidad de marca, modelado 3D y motion design) no está sujeta a autorización
+        La actividad (diseño y desarrollo web y automatización de procesos) no está sujeta a autorización
         administrativa ni a colegiación profesional.
       </p>
 
       <h3>2. Objeto y condiciones de uso</h3>
-      <p>Esta web es el portfolio profesional del titular: presenta sus servicios y una selección de proyectos, y facilita el contacto para solicitar información o presupuesto. Su uso es libre y gratuito. Al navegar por ella aceptas usarla de forma lícita y no dañar su funcionamiento ni sus contenidos.</p>
+      <p>Esta web es el portfolio profesional del titular: presenta sus servicios y una selección de proyectos de muestra, y facilita el contacto para solicitar información o presupuesto. Su uso es libre y gratuito. Al navegar por ella aceptas usarla de forma lícita y no dañar su funcionamiento ni sus contenidos.</p>
 
       <h3>3. Propiedad intelectual e industrial</h3>
       <p>Los textos, el diseño y el código de esta web son del titular o se usan con permiso. No se permite su reproducción, distribución ni transformación con fines comerciales sin autorización por escrito.</p>
-      <p>Los proyectos del apartado «Proyectos» se muestran como ejemplo del trabajo realizado. Las marcas, nombres y contenidos de cada proyecto pertenecen a sus respectivos titulares.</p>
+      <p>Los proyectos del apartado «Proyectos» son negocios ficticios creados por el titular como muestra de su trabajo; cualquier parecido con negocios reales es casual.</p>
       <p>Tipografías Kanit, Fraunces, Manrope y Marck Script, de Google Fonts, bajo la licencia SIL Open Font License 1.1. Iconos de Lucide, bajo licencia ISC.</p>
 
       <h3>4. Responsabilidad</h3>
@@ -85,7 +85,7 @@ function Privacidad() {
 
       <h3>2. Qué datos tratamos</h3>
       <p>Esta web no tiene formularios ni recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando escribes por correo o por WhatsApp o llamas por teléfono: tu nombre, tus datos de contacto y la información que compartas sobre tu proyecto.</p>
-      <p>Al navegar, tu navegador descarga algunos recursos (tipografías, imágenes y vídeos) desde servidores de terceros: Google Fonts y redes de distribución de contenidos como Amazon CloudFront y motionsites.ai. Esos servidores reciben datos técnicos, como tu dirección IP, para poder enviarte los archivos.</p>
+      <p>Esta web se aloja en GitHub Pages, un servicio de GitHub, Inc. Todos sus archivos (textos, tipografías, imágenes y vídeos) se sirven desde ahí, sin recursos de otros servidores. Para enviarte la página, GitHub recibe datos técnicos como tu dirección IP y los trata según su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">declaración de privacidad</a>.</p>
 
       <h3>3. Para qué y con qué base legal</h3>
       <ul>
@@ -114,24 +114,13 @@ function Cookies() {
       <p>Son pequeños archivos que una web guarda en tu navegador para recordar información entre visitas o para que funcionen algunos servicios.</p>
 
       <h3>2. Cookies que usa esta web</h3>
-      <p>Esta web no instala cookies propias ni utiliza cookies analíticas, publicitarias o de seguimiento. Tampoco guarda información en el almacenamiento local de tu navegador.</p>
-      <p>Al cargar las animaciones de muestra de la franja de imágenes, el servidor de motionsites.ai instala esta cookie técnica de terceros:</p>
-      <div className="overflow-x-auto">
-        <table>
-          <thead>
-            <tr><th>Cookie</th><th>Titular</th><th>Finalidad</th><th>Duración</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>__cf_bm</code></td><td>motionsites.ai (Cloudflare)</td><td>Seguridad: distingue el tráfico legítimo de los bots</td><td>30 minutos</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Esta web no instala cookies, ni propias ni de terceros, y no utiliza herramientas analíticas, publicitarias o de seguimiento. Tampoco guarda información en el almacenamiento local de tu navegador.</p>
 
       <h3>3. Consentimiento</h3>
-      <p>Las cookies técnicas y de seguridad están exentas de consentimiento (art. 22.2 de la LSSI-CE), por eso esta web no muestra un banner. Si en el futuro se incorporan cookies analíticas o publicitarias, se pedirá tu consentimiento previo mediante un aviso en el que rechazar será tan fácil como aceptar.</p>
+      <p>Como no se instala ninguna cookie, esta web no muestra un banner de consentimiento. Si en el futuro se incorporan cookies analíticas o publicitarias, se pedirá tu consentimiento previo mediante un aviso en el que rechazar será tan fácil como aceptar.</p>
 
       <h3>4. Cómo gestionarlas</h3>
-      <p>Puedes bloquear o borrar las cookies desde los ajustes de tu navegador (Chrome, Firefox, Safari o Edge). Bloquear la cookie de seguridad de motionsites.ai puede impedir que se vean algunas animaciones de muestra.</p>
+      <p>Puedes bloquear o borrar las cookies desde los ajustes de tu navegador (Chrome, Firefox, Safari o Edge).</p>
     </>
   );
 }
@@ -145,11 +134,13 @@ const CONTENT: Record<LegalKey, () => ReactNode> = {
 // Legal documents open in a modal driven by the URL hash (#aviso-legal, #privacidad, #cookies),
 // so every text has its own shareable link.
 export default function LegalDialog() {
-  const [doc, setDoc] = useState<LegalKey | null>(() => keyFromHash());
+  // Read the hash after mount so the prerendered HTML and the first client render match.
+  const [doc, setDoc] = useState<LegalKey | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     const onHash = () => setDoc(keyFromHash());
+    onHash();
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);

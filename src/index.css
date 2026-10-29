@@ -28,6 +28,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* One visible keyboard focus style for every link and button. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #f2c94c;
+  outline-offset: 3px;
+}
+
 /* Sky-to-cloud gradient text, echoing the hero scene. */
 .hero-heading {
   background: linear-gradient(180deg, #8ec3ec 0%, #ebeee7 100%);
@@ -111,7 +118,7 @@ html {
 
 .footer__brand {
   margin: clamp(6px, 0.9vw, 12px) 0 0;
-  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-family: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
   font-weight: 600;
   font-variation-settings: 'opsz' 72;
   font-size: clamp(40px, 3.6vw, 48px);
@@ -212,6 +219,8 @@ html {
 }
 
 .footer__legal a {
+  display: inline-block;
+  padding: 6px 0;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -306,7 +315,7 @@ html {
 @media (max-width: 900px) {
   .footer__nav ul {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 16px;
     row-gap: 4px;
     max-width: 560px;

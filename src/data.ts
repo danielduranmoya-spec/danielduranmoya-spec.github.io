@@ -1,52 +1,18 @@
-export const marqueeImages = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-  'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
-  'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-  'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-  'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-  'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-  'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
-  'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
-  'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
-  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
-  'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
-  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-  'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
-  'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
-  'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
-  'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
-];
-
 export const services = [
   {
-    name: 'Modelado 3D',
+    name: 'Webs que captan clientes',
     description:
-      'Creación de objetos, personajes o entornos detallados adaptados a las necesidades de cada cliente, ideales para videojuegos, productos y visualizaciones.',
+      'Webs a medida, rápidas y adaptadas a móvil, pensadas para que quien entra te escriba, reserve o pida presupuesto. Con SEO local y textos legales incluidos.',
   },
   {
-    name: 'Renderizado',
+    name: 'Automatizaciones',
     description:
-      'Renders fotorrealistas de alta calidad que muestran cada diseño con iluminación, texturas y materiales a medida para dar vida a las ideas.',
+      'Conecto tu web con WhatsApp, el correo y tus hojas de cálculo para que las tareas repetitivas se hagan solas: avisos de contacto, recordatorios de cita o peticiones de reseña.',
   },
   {
-    name: 'Motion design',
+    name: 'Mantenimiento y mejoras',
     description:
-      'Animaciones y gráficos en movimiento que aportan energía y narrativa a marcas, productos y experiencias digitales.',
-  },
-  {
-    name: 'Identidad de marca',
-    description:
-      'Identidades visuales coherentes —del logotipo al sistema de marca completo— que transmiten una presencia clara y memorable.',
-  },
-  {
-    name: 'Diseño web',
-    description:
-      'Sitios web limpios, modernos y orientados a la conversión, cuidando la maquetación, la tipografía y la experiencia de usuario.',
+      'Cambios de contenido, copias de seguridad y actualizaciones para que tu web y tus automatizaciones sigan funcionando con el tiempo.',
   },
 ];
 
@@ -57,6 +23,8 @@ export interface ProjectImage {
 
 export interface Project {
   name: string;
+  /** Negocio ficticio creado como muestra de trabajo. */
+  concept?: boolean;
   category: string;
   url: string;
   col1: [ProjectImage, ProjectImage];
@@ -67,6 +35,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'ÁNCORA Fisioterapia',
+    concept: true,
     category: 'Landing page',
     url: 'https://danielduranmoya-spec.github.io/ancora-fisio/',
     col1: [
@@ -86,6 +55,7 @@ export const projects: Project[] = [
   },
   {
     name: 'LUMBRE Asador',
+    concept: true,
     category: 'Web de negocio',
     url: 'https://danielduranmoya-spec.github.io/lumbre-asador/',
     col1: [
@@ -105,6 +75,7 @@ export const projects: Project[] = [
   },
   {
     name: 'LAJA Bodega',
+    concept: true,
     category: 'Web interactiva 3D',
     url: 'https://danielduranmoya-spec.github.io/laja-bodega/',
     col1: [
@@ -173,3 +144,43 @@ export const processSteps = [
   { title: 'Desarrollo', text: 'Construyo la web adaptada a móvil, con textos legales y SEO básico, y te la enseño antes de publicarla.' },
   { title: 'Lanzamiento', text: 'Publicamos con el dominio a tu nombre: la web es tuya. Tienes 30 días de soporte gratuito.' },
 ];
+
+export interface AutomationCase {
+  title: string;
+  text: string;
+}
+
+// Ejemplos de flujos que se ofrecen; cada uno se adapta a las herramientas del negocio.
+export const automationCases: AutomationCase[] = [
+  {
+    title: 'Ningún contacto se pierde',
+    text: 'Cada mensaje del formulario de tu web te llega al momento por WhatsApp o correo y queda apuntado en una hoja de cálculo.',
+  },
+  {
+    title: 'Recordatorio de cita',
+    text: 'Tus clientes reciben un aviso el día antes de su cita o reserva. Menos huecos vacíos en la agenda.',
+  },
+  {
+    title: 'Más reseñas en Google',
+    text: 'Después de la visita, el cliente recibe un mensaje con el enlace para dejar su reseña.',
+  },
+  {
+    title: 'Resumen semanal',
+    text: 'Cada lunes, un resumen con los contactos, reservas y presupuestos de la semana anterior.',
+  },
+];
+
+export const automationPricing = {
+  name: 'Automatizaciones',
+  summary: 'Cada flujo depende de tus herramientas y de cuánto hay que conectar, así que el precio se calcula en la primera reunión.',
+  setup: {
+    label: 'Puesta en marcha',
+    price: 'A medida',
+    detail: 'Pago único según la complejidad y las horas de trabajo.',
+  },
+  monthly: {
+    label: 'Cuota mensual',
+    price: 'A medida',
+    detail: 'Servidor en la nube y mantenimiento del flujo, según el uso.',
+  },
+};

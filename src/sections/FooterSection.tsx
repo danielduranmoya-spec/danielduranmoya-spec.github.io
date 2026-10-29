@@ -1,17 +1,17 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import CompassMark from '../components/CompassMark';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, whatsappHref } from '../components/ContactButton';
 import { LEGAL_DOCS } from '../components/LegalDialog';
 import { useInViewPlayback } from '../hooks/useInViewPlayback';
-
-const VIDEO_URL =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260928_144832_2b6b23aa-4416-4fcb-9df4-132349c59edc.mp4';
+import { FOOTER_VIDEO } from '../media';
 
 const footerLinks = [
   { label: 'Sobre mí', href: '#about' },
   { label: 'Servicios', href: '#services' },
+  { label: 'Automatizaciones', href: '#automatizaciones' },
   { label: 'Proyectos', href: '#projects' },
+  { label: 'Tarifas', href: '#tarifas' },
   { label: 'Contacto', href: `mailto:${CONTACT_EMAIL}` },
 ];
 
@@ -19,8 +19,9 @@ export default function FooterSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   useInViewPlayback(videoRef);
 
+  const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
-  const rotate = useTransform(scrollY, (v) => v * 0.15);
+  const rotate = useTransform(scrollY, (v) => (reduceMotion ? 0 : v * 0.15));
 
   return (
     // An engraved stone viaduct; the video's white ground multiplies into the sage paper.
@@ -32,12 +33,13 @@ export default function FooterSection() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
+        poster="/media/footer-viaduct.webp"
         aria-hidden="true"
         tabIndex={-1}
         disablePictureInPicture
       >
-        <source src={VIDEO_URL} type="video/mp4" />
+        <source src={FOOTER_VIDEO} type="video/mp4" />
       </video>
 
       <div className="footer__content">
@@ -52,7 +54,7 @@ export default function FooterSection() {
         </p>
 
         <p className="footer__tagline">
-          La ruta panorámica hacia proyectos memorables. Diseño, 3D y web, de la primera idea al lanzamiento.
+          La ruta panorámica hacia proyectos memorables. Webs y automatizaciones para negocios, de la primera idea al lanzamiento.
         </p>
 
         <nav className="footer__nav" aria-label="Pie de página">

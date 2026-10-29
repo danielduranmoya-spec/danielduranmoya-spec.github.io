@@ -1,8 +1,8 @@
-import { Check, Clock, MessageCircle } from 'lucide-react';
+import { Check, Clock, MessageCircle, Workflow } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import SectionKicker from '../components/SectionKicker';
 import { whatsappHref } from '../components/ContactButton';
-import { maintenance, plans, processSteps } from '../data';
+import { automationPricing, maintenance, plans, processSteps } from '../data';
 
 export default function PricingSection() {
   return (
@@ -90,6 +90,34 @@ export default function PricingSection() {
           {maintenance.price}
           <span className="text-base font-light text-paper/70">{maintenance.unit}</span>
         </p>
+      </FadeIn>
+      <FadeIn
+        delay={0.1}
+        className="mx-auto mt-5 grid max-w-6xl gap-6 rounded-[32px] bg-meadow-deep p-7 sm:p-8 md:mt-6 md:grid-cols-[1.2fr_1fr_1fr] md:items-center"
+      >
+        <div>
+          <h3 className="flex items-center gap-2 text-lg font-medium uppercase tracking-wider">
+            <Workflow className="h-5 w-5 text-sun" aria-hidden="true" /> {automationPricing.name}
+          </h3>
+          <p className="mt-1 text-sm font-light text-paper/75">{automationPricing.summary}</p>
+          <a
+            href={whatsappHref('Hola Daniel, me interesa una automatización. ¿Podemos hablar?')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-paper px-6 py-3 text-sm font-medium uppercase tracking-widest text-paper transition-colors duration-200 hover:bg-paper/10"
+          >
+            <MessageCircle className="h-4 w-4" /> Pedir presupuesto
+          </a>
+        </div>
+        {[automationPricing.setup, automationPricing.monthly].map((item) => (
+          <div key={item.label} className="border-t border-paper/20 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+            <p className="text-sm font-light uppercase tracking-wider text-paper/70">{item.label}</p>
+            <p className="mt-1 font-black leading-none" style={{ fontSize: 'clamp(1.8rem, 2.6vw, 2.3rem)' }}>
+              {item.price}
+            </p>
+            <p className="mt-2 text-sm font-light text-paper/75">{item.detail}</p>
+          </div>
+        ))}
       </FadeIn>
       <p className="mx-auto mt-5 max-w-6xl text-center text-sm font-light text-paper/60">
         Precios orientativos sin IVA (21 % aparte). El dominio y el alojamiento, si los necesitas, se presupuestan aparte.
