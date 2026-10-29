@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { X } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from './ContactButton';
+import { isContactFormReady } from '../contactForm';
 
 // Datos del titular (art. 10 LSSI-CE). Completa los campos vacíos antes de publicar:
 // mientras estén vacíos se muestran resaltados como «pendiente» en los textos legales.
@@ -84,7 +85,11 @@ function Privacidad() {
       <Titular />
 
       <h3>2. Qué datos tratamos</h3>
-      <p>Esta web no tiene formularios ni recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando escribes por correo o por WhatsApp o llamas por teléfono: tu nombre, tus datos de contacto y la información que compartas sobre tu proyecto.</p>
+      {isContactFormReady() ? (
+        <p>Esta web no recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando usas el formulario de contacto, escribes por correo o por WhatsApp o llamas por teléfono: tu nombre, tus datos de contacto, el nombre de tu negocio si lo indicas y la información que compartas sobre tu proyecto.</p>
+      ) : (
+        <p>Esta web no tiene formularios ni recoge datos con fines analíticos o publicitarios. Solo tratamos los datos que nos facilitas cuando escribes por correo o por WhatsApp o llamas por teléfono: tu nombre, tus datos de contacto y la información que compartas sobre tu proyecto.</p>
+      )}
       <p>Esta web se aloja en GitHub Pages, un servicio de GitHub, Inc. Todos sus archivos (textos, tipografías, imágenes y vídeos) se sirven desde ahí, sin recursos de otros servidores. Para enviarte la página, GitHub recibe datos técnicos como tu dirección IP y los trata según su <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">declaración de privacidad</a>.</p>
 
       <h3>3. Para qué y con qué base legal</h3>
@@ -99,6 +104,9 @@ function Privacidad() {
 
       <h3>5. A quién se comunican</h3>
       <p>No cedemos tus datos a terceros, salvo obligación legal (por ejemplo, a la Agencia Tributaria). Para atender tu consulta usamos el correo electrónico de Google (Gmail), que actúa como encargado del tratamiento. Google puede tratar datos en Estados Unidos, transferencia amparada en el Marco de Privacidad de Datos UE-EE. UU. (decisión de adecuación de la Comisión Europea de 10 de julio de 2023).</p>
+      {isContactFormReady() && (
+        <p>Los mensajes del formulario de contacto se guardan en Google Forms y Google Sheets (Google Ireland Limited), que actúa como encargado del tratamiento con las mismas garantías que Gmail. Una automatización que se ejecuta en el ordenador del titular los lee para avisarle y preparar un borrador de respuesta, que el titular revisa antes de enviarlo. El aviso que recibe el titular no incluye tus datos.</p>
+      )}
       <p>Si eliges escribir por WhatsApp, la conversación pasa por el servicio de WhatsApp Ireland Limited, que trata tus datos como responsable según su propia política de privacidad. Al pulsar un botón de WhatsApp de esta web solo se abre la aplicación con un mensaje sugerido: no se envía nada hasta que tú lo decides.</p>
 
       <h3>6. Tus derechos</h3>
