@@ -10,7 +10,7 @@ export default function ServicesSection() {
       id="services"
       className="relative z-20 -mt-10 rounded-t-[40px] bg-ink px-5 py-20 sm:-mt-12 sm:rounded-t-[50px] sm:px-8 sm:py-24 md:-mt-14 md:rounded-t-[60px] md:px-10 md:py-32"
     >
-      <SectionKicker number="02" label="qué hago" />
+      <SectionKicker number="01" label="qué hago" />
       <FadeIn
         as="h2"
         delay={0}

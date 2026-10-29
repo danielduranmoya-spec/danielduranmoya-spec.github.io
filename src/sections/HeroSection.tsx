@@ -3,22 +3,22 @@ import { useReducedMotion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import ContactButton, { CONTACT_ANCHOR } from '../components/ContactButton';
+import MobileMenu from '../components/MobileMenu';
 import { useInViewPlayback } from '../hooks/useInViewPlayback';
+import { HERO_PLATE, MEADOW_VIDEO } from '../media';
 
-const navLinks = [
+export const navLinks = [
   { label: 'Sobre mí', href: '#about' },
   { label: 'Servicios', href: '#services' },
+  { label: 'Automatizaciones', href: '#automatizaciones' },
   { label: 'Proyectos', href: '#projects' },
   { label: 'Tarifas', href: '#tarifas' },
 ];
 
-const PLATE_URL =
-  'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/3ca5d10d-ea2f-4907-876f-33bde169469e.jpg';
-const VIDEO_URL =
-  'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/d2cb5bef-f92b-4e91-ae93-8dc6555e56ac.mp4';
-
 // Soft blue shadow from the scene's art direction; 1u = 100vw / 1440.
 const SKY_SHADOW = '0 0.28vw 1.25vw rgba(28, 70, 120, 0.28)';
+// Tighter, darker shadow for the small tagline so it stays readable over the clouds.
+const TAGLINE_SHADOW = '0 1px 2px rgba(16, 42, 72, 0.7), 0 0 14px rgba(16, 42, 72, 0.45)';
 
 function HeroScene() {
   const reduceMotion = useReducedMotion();
@@ -30,12 +30,13 @@ function HeroScene() {
       {/* One 9:8 box that covers the hero, top-anchored; on narrow screens it is
           height-driven and shifted so the boy and dog stay in view. */}
       <div className="absolute left-[18%] top-0 aspect-[9/8] w-[max(100%,112.5vh,630px)] -translate-x-[18%]">
-        <img src={PLATE_URL} alt="" className="absolute inset-0 h-full w-full" />
+        <img src={HERO_PLATE} alt="" className="absolute inset-0 h-full w-full" />
         {!reduceMotion && (
           // The square video is the plate mirror-padded 120/1920 top and bottom.
           <video
             ref={videoRef}
-            src={VIDEO_URL}
+            src={MEADOW_VIDEO}
+            poster={HERO_PLATE}
             autoPlay
             muted
             loop
@@ -52,7 +53,8 @@ function HeroScene() {
 
 export default function HeroSection() {
   return (
-    <section className="relative flex h-screen min-h-[560px] flex-col overflow-hidden">
+    // The sky colour stands in while the plate loads, so the hero is never a blank dark box.
+    <section className="relative flex h-screen min-h-[560px] flex-col overflow-hidden bg-[#8ec3ec] supports-[height:100svh]:h-[100svh]">
       <HeroScene />
 
       <FadeIn
@@ -72,26 +74,29 @@ export default function HeroSection() {
         </a>
 
         <div
-          className="hidden items-center gap-12 rounded-full px-12 py-3 backdrop-blur-md md:flex"
+          className="hidden items-center gap-8 rounded-full px-10 py-3 backdrop-blur-md lg:flex xl:gap-12 xl:px-12"
           style={{ background: 'rgba(173, 196, 174, 0.45)' }}
         >
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="link-draw text-lg font-medium uppercase tracking-wider text-white"
+              className="link-draw text-base font-medium uppercase tracking-wider text-white xl:text-lg"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <a
-          href={CONTACT_ANCHOR}
-          className="rounded-full bg-white px-5 py-2 text-sm font-medium uppercase tracking-wider text-meadow transition-transform duration-200 hover:-translate-y-0.5 md:px-6 md:py-2.5 md:text-base"
-        >
-          Contacto
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={CONTACT_ANCHOR}
+            className="rounded-full bg-white px-5 py-2 text-sm font-medium uppercase tracking-wider text-meadow transition-transform duration-200 hover:-translate-y-0.5 md:px-6 md:py-2.5 md:text-base"
+          >
+            Contacto
+          </a>
+          <MobileMenu links={navLinks} />
+        </div>
       </FadeIn>
 
       <div className="relative z-10 flex flex-col items-center px-5 pt-[8vh] text-center md:pt-[7vw]">
@@ -121,10 +126,10 @@ export default function HeroSection() {
           as="p"
           delay={0.45}
           y={20}
-          className="mt-4 max-w-[300px] font-light uppercase leading-snug tracking-wide text-white sm:max-w-[420px] md:mt-6 md:max-w-[560px]"
-          style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.35rem)', textShadow: SKY_SHADOW }}
+          className="mt-4 max-w-[300px] font-normal uppercase leading-snug tracking-wide text-white sm:max-w-[420px] md:mt-6 md:max-w-[560px]"
+          style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1.35rem)', textShadow: TAGLINE_SHADOW }}
         >
-          un creador web que da vida a proyectos llamativos e inolvidables
+          webs y automatizaciones para que tu negocio consiga más clientes
         </FadeIn>
 
         <FadeIn delay={0.6} y={20} className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8 md:gap-4">
@@ -132,7 +137,7 @@ export default function HeroSection() {
           <a
             href="#projects"
             className="group flex items-center gap-2 rounded-full px-7 py-3 text-xs font-medium uppercase tracking-widest text-white backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 sm:py-3.5 sm:text-sm md:px-9 md:py-4 md:text-base"
-            style={{ background: 'rgba(204, 218, 173, 0.6)' }}
+            style={{ background: 'rgba(63, 107, 70, 0.72)' }}
           >
             Proyectos
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

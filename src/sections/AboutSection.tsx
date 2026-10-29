@@ -4,15 +4,11 @@ import FadeIn from '../components/FadeIn';
 import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
 import { useInViewPlayback } from '../hooks/useInViewPlayback';
-
-// The original Cloudinary clip is unavailable (account disabled); the hero's
-// meadow loop stands in, cropped to the waving grass. Swap the URL to replace it.
-const MEADOW_VIDEO_URL =
-  'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/d2cb5bef-f92b-4e91-ae93-8dc6555e56ac.mp4';
+import { MEADOW_VIDEO } from '../media';
 
 const STORY = [
-  'Me centro en el branding, el diseño web y la experiencia de usuario, y combino modelado 3D, renderizado y motion design para dar vida a cada idea.',
-  'Disfruto de verdad trabajando con empresas que quieren destacar y mostrar su mejor imagen. Tu marca debería contar tu historia, no perderse entre el ruido. ¡Construyamos juntos algo increíble!',
+  'Diseño webs a medida para negocios que quieren que su web trabaje: que quien entra te escriba, reserve o pida presupuesto. Cuando encaja, añado escenas 3D y animaciones para que se recuerde.',
+  'También conecto la web con WhatsApp, el correo y tus hojas de cálculo para que las tareas repetitivas se hagan solas y tú dediques el tiempo a tus clientes.',
 ];
 
 export default function AboutSection() {
@@ -44,8 +40,7 @@ export default function AboutSection() {
             y={20}
             className="mx-auto mb-[40px] w-full max-w-[420px] text-[16px] uppercase leading-[1.6] tracking-wider text-white"
           >
-            Sobre mí — diseño marcas, webs y mundos 3D con un único propósito: que tu proyecto destaque y se
-            recuerde
+            Sobre mí — creo webs y automatizaciones con un único propósito: que tu negocio consiga más clientes
           </FadeIn>
 
           <FadeIn
@@ -80,10 +75,11 @@ export default function AboutSection() {
               loop
               muted
               playsInline
+              preload="none"
               aria-hidden="true"
               className="block h-full w-full object-cover object-bottom"
             >
-              <source src={MEADOW_VIDEO_URL} type="video/mp4" />
+              <source src={MEADOW_VIDEO} type="video/mp4" />
             </video>
           )}
         </div>

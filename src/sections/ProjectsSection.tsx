@@ -14,6 +14,7 @@ function ProjectImage({ image, className = '', style }: { image: ProjectImageDat
         src={image.src}
         alt={image.alt}
         loading="lazy"
+        decoding="async"
         className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
       />
     </div>
@@ -43,11 +44,18 @@ function ProjectCard({ project, index, total, progress }: ProjectCardProps) {
               {String(index + 1).padStart(2, '0')}
             </span>
             <div className="flex flex-col gap-1">
-              <span
-                className="font-serif text-sun"
-                style={{ fontSize: 'clamp(0.85rem, 1.3vw, 1.1rem)', fontVariationSettings: '"opsz" 72' }}
-              >
-                {project.category}
+              <span className="flex flex-wrap items-center gap-2">
+                <span
+                  className="font-serif text-sun"
+                  style={{ fontSize: 'clamp(0.85rem, 1.3vw, 1.1rem)', fontVariationSettings: '"opsz" 72' }}
+                >
+                  {project.category}
+                </span>
+                {project.concept && (
+                  <span className="rounded-full border border-paper/40 px-2.5 py-0.5 text-[11px] uppercase tracking-wider text-paper/80">
+                    Proyecto concepto
+                  </span>
+                )}
               </span>
               <h3 className="font-medium uppercase text-paper" style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}>
                 {project.name}
@@ -86,10 +94,19 @@ export default function ProjectsSection() {
         as="h2"
         delay={0}
         y={40}
-        className="hero-heading mb-16 text-center font-black uppercase leading-none tracking-tight sm:mb-20 md:mb-28"
+        className="hero-heading mb-6 text-center font-black uppercase leading-none tracking-tight"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
         Proyectos
+      </FadeIn>
+      <FadeIn
+        as="p"
+        delay={0.1}
+        y={20}
+        className="mx-auto mb-16 max-w-xl text-center font-light leading-relaxed text-paper/80 sm:mb-20 md:mb-28"
+        style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.2rem)' }}
+      >
+        Negocios ficticios que he creado para enseñar cómo trabajo. Abre cada web y pruébala como lo haría un cliente.
       </FadeIn>
 
       <div ref={containerRef} className="mx-auto max-w-7xl">

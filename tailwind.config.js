@@ -19,7 +19,7 @@ export default {
       },
       fontFamily: {
         kanit: ['Kanit', 'sans-serif'],
-        serif: ['Fraunces', 'Georgia', '"Times New Roman"', 'serif'],
+        serif: ['"Fraunces Variable"', 'Georgia', '"Times New Roman"', 'serif'],
         manrope: ['Manrope', 'sans-serif'],
         marck: ['"Marck Script"', 'cursive'],
       },
