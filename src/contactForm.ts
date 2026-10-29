@@ -3,12 +3,12 @@
 // fields: el número de cada pregunta (entry.NNN), sacado del enlace «Obtener enlace prellenado».
 // Mientras formId esté vacío, la sección del formulario no se muestra.
 export const GOOGLE_FORM = {
-  formId: '',
+  formId: '1FAIpQLSeayZblJ8NS-KMY9AG11HrmOBUxmbjBYc2rznKUhOjFr33FTg',
   fields: {
-    nombre: '',
-    contacto: '',
-    negocio: '',
-    mensaje: '',
+    nombre: '1082328704',
+    contacto: '1533132828',
+    negocio: '1328207113',
+    mensaje: '89354986',
   },
 };
 
