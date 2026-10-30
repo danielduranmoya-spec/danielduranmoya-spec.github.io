@@ -112,14 +112,14 @@ export const plans: Plan[] = [
     price: '390 €',
     summary: 'Una página a medida para presentar tu negocio o una campaña.',
     features: ['Diseño a medida adaptado a móvil', 'Botón de WhatsApp y contacto', 'SEO básico y textos legales', '2 rondas de revisiones'],
-    timeline: '1–2 semanas',
+    timeline: '1 semana',
   },
   {
     name: 'Web de negocio',
     price: '890 €',
     summary: 'La web completa de tu negocio, lista para captar clientes.',
     features: ['Hasta 5 secciones', 'Reservas online o catálogo', 'Mapa, horario y reseñas', 'Animaciones y textos legales'],
-    timeline: '3–4 semanas',
+    timeline: '2–3 semanas',
     featured: true,
   },
   {
@@ -127,7 +127,7 @@ export const plans: Plan[] = [
     price: '1.690 €',
     summary: 'Una experiencia que nadie olvida, con escenas 3D o vídeo interactivo.',
     features: ['Escena 3D o vídeo interactivo', 'Personajes o productos en 3D', 'Todo lo de la web de negocio', 'Optimizada para móvil'],
-    timeline: '4–6 semanas',
+    timeline: '3–5 semanas',
   },
 ];
 
