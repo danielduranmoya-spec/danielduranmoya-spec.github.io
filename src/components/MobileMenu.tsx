@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
+import { CONTACT_ANCHOR } from './ContactButton';
 
 interface MobileMenuProps {
   links: { label: string; href: string }[];
@@ -70,7 +71,7 @@ export default function MobileMenu({ links }: MobileMenuProps) {
                 </a>
               ))}
               <a
-                href="#contacto"
+                href={CONTACT_ANCHOR}
                 onClick={() => setOpen(false)}
                 className="mt-8 rounded-full bg-paper py-4 text-center text-base font-medium uppercase tracking-widest text-ink"
               >

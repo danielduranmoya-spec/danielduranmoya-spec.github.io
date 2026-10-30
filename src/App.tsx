@@ -7,6 +7,7 @@ import AutomationsSection from './sections/AutomationsSection';
 import ProjectsSection from './sections/ProjectsSection';
 import FooterSection from './sections/FooterSection';
 import PricingSection from './sections/PricingSection';
+import ContactSection from './sections/ContactSection';
 import LegalDialog from './components/LegalDialog';
 import WhatsAppButton from './components/WhatsAppButton';
 
@@ -22,6 +23,7 @@ export default function App() {
         <AutomationsSection />
         <ProjectsSection />
         <PricingSection />
+        <ContactSection />
         <FooterSection />
         <LegalDialog />
         <WhatsAppButton />
