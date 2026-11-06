@@ -48,8 +48,8 @@ export default function FooterSection() {
         </motion.div>
 
         <p className="footer__brand">
-          <a href="#" aria-label="Daniel, inicio">
-            daniel
+          <a href="#" aria-label="Daniel Durán Moya, inicio">
+            Daniel Durán Moya
           </a>
         </p>
 
@@ -80,7 +80,7 @@ export default function FooterSection() {
         </a>
 
         <p className="footer__copy">
-          © {new Date().getFullYear()} Daniel · Creador web. Todos los derechos reservados.
+          © {new Date().getFullYear()} Daniel Durán Moya · Creador web. Todos los derechos reservados.
         </p>
 
         <nav className="footer__legal" aria-label="Textos legales">

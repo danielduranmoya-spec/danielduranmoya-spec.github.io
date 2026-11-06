@@ -60,17 +60,17 @@ export const projects: Project[] = [
     url: 'https://danielduranmoya-spec.github.io/lumbre-asador/',
     col1: [
       {
-        src: '/projects/lumbre-carta.webp',
-        alt: 'Carta de LUMBRE «Todo pasa por la brasa» con categorías y precios',
-      },
-      {
         src: '/projects/lumbre-reservas.webp',
         alt: 'Reserva de mesa de LUMBRE en tres pasos con calendario y resumen',
+      },
+      {
+        src: '/projects/lumbre-carta.webp',
+        alt: 'Carta de LUMBRE «Todo pasa por la brasa» con la foto de la presa ibérica, categorías y precios',
       },
     ],
     col2: {
       src: '/projects/lumbre-inicio.webp',
-      alt: 'Portada de LUMBRE: «Fuego de encina. Carne de dehesa.» con brasas y horario',
+      alt: 'Portada de LUMBRE: «Fuego de encina. Carne de dehesa.» sobre la foto de la carne en la parrilla, con brasas y horario',
     },
   },
   {
