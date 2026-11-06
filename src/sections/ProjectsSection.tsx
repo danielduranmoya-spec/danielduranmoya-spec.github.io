@@ -1,5 +1,5 @@
-import { useRef, type CSSProperties } from 'react';
-import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
+import { type CSSProperties } from 'react';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import LiveProjectButton from '../components/LiveProjectButton';
 import SectionKicker from '../components/SectionKicker';
@@ -7,37 +7,46 @@ import { projects, type Project, type ProjectImage as ProjectImageData } from '.
 
 const IMAGE_RADIUS = 'rounded-[40px] sm:rounded-[50px] md:rounded-[60px]';
 
+const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+
+// Each card presents itself as it enters the viewport: the frame rises in, then
+// its three captures uncover one after another. Nothing is pinned, so the page
+// keeps scrolling at its normal pace.
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 48 },
+  shown: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT, staggerChildren: 0.12, delayChildren: 0.15 } },
+};
+
+const imageVariants: Variants = {
+  hidden: { opacity: 0, y: 24, clipPath: 'inset(12% 0% 0% 0% round 40px)' },
+  shown: { opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0% round 0px)', transition: { duration: 0.7, ease: EASE_OUT } },
+};
+
 function ProjectImage({ image, className = '', style }: { image: ProjectImageData; className?: string; style?: CSSProperties }) {
   return (
-    <div className={`overflow-hidden ${IMAGE_RADIUS} ${className}`} style={style}>
+    <motion.div variants={imageVariants} className={`overflow-hidden ${IMAGE_RADIUS} ${className}`} style={style}>
       <img
         src={image.src}
         alt={image.alt}
         loading="lazy"
         decoding="async"
-        className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+        className="h-full w-full object-cover object-left-top transition-transform duration-700 ease-out hover:scale-105"
       />
-    </div>
+    </motion.div>
   );
 }
 
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-  total: number;
-  progress: MotionValue<number>;
-}
-
-function ProjectCard({ project, index, total, progress }: ProjectCardProps) {
-  const targetScale = 1 - (total - 1 - index) * 0.03;
-  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const reduceMotion = useReducedMotion();
 
   return (
-    <div className="sticky top-24 h-[85vh] md:top-32">
-      <motion.div
-        className="relative origin-top rounded-[40px] border-2 border-paper bg-forest p-4 sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
-        style={{ scale, top: `${index * 28}px` }}
-      >
+    <motion.article
+      className="relative rounded-[40px] border-2 border-paper bg-forest p-4 sm:rounded-[50px] sm:p-6 md:rounded-[60px] md:p-8"
+      variants={reduceMotion ? undefined : cardVariants}
+      initial={reduceMotion ? false : 'hidden'}
+      whileInView="shown"
+      viewport={{ once: true, amount: 0.2 }}
+    >
         <div className="mb-4 flex flex-wrap items-center justify-between gap-4 sm:mb-6 md:mb-8">
           <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
             <span className="hero-heading font-black leading-none" style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}>
@@ -72,18 +81,11 @@ function ProjectCard({ project, index, total, progress }: ProjectCardProps) {
           </div>
           <ProjectImage image={project.col2} className="w-[60%]" />
         </div>
-      </motion.div>
-    </div>
+    </motion.article>
   );
 }
 
 export default function ProjectsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
   return (
     <section
       id="projects"
@@ -109,15 +111,9 @@ export default function ProjectsSection() {
         Negocios ficticios que he creado para enseñar cómo trabajo. Abre cada web y pruébala como lo haría un cliente.
       </FadeIn>
 
-      <div ref={containerRef} className="mx-auto max-w-7xl">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 sm:gap-10 md:gap-14">
         {projects.map((project, i) => (
-          <ProjectCard
-            key={project.name}
-            project={project}
-            index={i}
-            total={projects.length}
-            progress={scrollYProgress}
-          />
+          <ProjectCard key={project.name} project={project} index={i} />
         ))}
       </div>
     </section>
